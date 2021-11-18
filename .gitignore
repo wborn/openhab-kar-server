@@ -1,0 +1,12 @@
+.classpath
+.factorypath
+.idea
+.project
+.vscode
+.DS_Store
+*.iml
+
+kars/
+libs-milestone/
+libs-release/
+libs-snapshot/

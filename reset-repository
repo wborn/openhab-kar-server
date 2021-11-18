@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf libs-milestone/repository
+rm -rf libs-release/repository
+rm -rf libs-snapshot/repository

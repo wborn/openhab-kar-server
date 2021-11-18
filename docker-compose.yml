@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  nginx:
+    image: nginx:1.21.4-alpine
+    container_name: nginx
+    restart: unless-stopped
+    # remove the default HTML files so the repositories show
+    command: sh -c "rm /usr/share/nginx/html/*.html && nginx -g 'daemon off;'"
+    ports:
+      - "80:80"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./libs-snapshot/repository:/usr/share/nginx/html/libs-snapshot:ro
+      - ./libs-milestone/repository:/usr/share/nginx/html/libs-milestone:ro
+      - ./libs-release/repository:/usr/share/nginx/html/libs-release:ro
